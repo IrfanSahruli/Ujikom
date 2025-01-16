@@ -4,10 +4,11 @@ const {
     login,
     logout
 } = require('../../controllers/User/login');
+const upload = require('../../middlewares/multer');
 
 const router = express.Router();
 
-router.post('/register', register);
+router.post('/register', upload.single('fotoProfil'), register);
 router.post('/login', login);
 router.delete('/logout', logout);
 

@@ -7,10 +7,11 @@ const User = require('../../models/User/users');
 dotenv.config();
 
 const register = async (req, res) => {
+    const fotoProfil = req.file ? `/uploads/${req.file.filename}` : null;
     const {
         username,
-        email,
         password,
+        email,
         noHp,
         role
     } = req.body;
@@ -36,8 +37,9 @@ const register = async (req, res) => {
 
         const user = await User.create({
             username,
-            email,
             password: hashedpassword,
+            fotoProfil,
+            email,
             noHp,
             role
         });

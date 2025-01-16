@@ -13,11 +13,15 @@ const User = db.define('user', {
         allowNull: false,
         unique: true
     },
-    email: {
+    password: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    password: {
+    fotoProfil: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    email: {
         type: DataTypes.STRING,
         allowNull: true
     },
